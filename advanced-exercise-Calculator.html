@@ -13,8 +13,8 @@
 
 	<div class="container">
 		<div class="calculator">
-			<div id="display">
-			</div>
+			<h1><div id="display">
+			</div></h1>
 			<div id="firstRow">
 				<div id="buttonM1">
 					<button class="darkgreyB">M+</button>	
@@ -34,7 +34,7 @@
 			</div>
 			<div id="SecondRow">
 				<div id="plusMinus">
-					<button class="darkgreyB">-</button>	
+					<button class="darkgreyB">+-</button>	
 				</div>	
 				<div id="openPar">
 					<button class="darkgreyB">(</button>	
@@ -51,13 +51,13 @@
 				
 			</div>
 			<div id="thirdRow">
-				<div id="seven">
+				<div id="seven7">
 					<button class="lightgreyB">7</button>	
 				</div>	
-				<div id="eight">
+				<div id="eight8">
 					<button class="lightgreyB">8</button>	
 				</div>	
-				<div id="nine">	
+				<div id="nine9">	
 					<button class="lightgreyB">9</button>
 				</div>	
 				<div id="buttonDivide">	
@@ -68,13 +68,13 @@
 				</div>					
 			</div>
 			<div id="fourthRow">
-				<div id="four">	
+				<div id="four4">	
 					<button class="lightgreyB">4</button>
 				</div>	
-				<div id="five">
+				<div id="five5">
 					<button class="lightgreyB">5</button>	
 				</div>	
-				<div id="six">
+				<div id="six6">
 					<button class="lightgreyB">6</button>	
 				</div>	
 				<div id="buttonTimes">
@@ -85,17 +85,17 @@
 				</div>	
 			</div>	
 			<div id="fifthRow">
-				<div id="one">
+				<div id="one1">
 					<button class="lightgreyB">1</button>	
 				</div>	
-				<div id="two">
+				<div id="two2">
 					<button class="lightgreyB">2</button>	
 				</div>	
-				<div id="three">
+				<div id="three3">
 					<button class="lightgreyB">3</button>	
 				</div>	
 				<div id="buttonMinus">
-					<button class="darkgreyB">4</button>	
+					<button class="darkgreyB">-</button>	
 				</div>
 				<div id="equal">
 					<button class="orangeB">=</button>	
@@ -105,7 +105,7 @@
 				<div id="buttE">
 					<button class="lightgreyB">E</button>	
 				</div>	
-				<div id="zero">
+				<div id="zero0">
 					<button class="lightgreyB">0</button>	
 				</div>	
 				<div id="dot">
@@ -123,7 +123,51 @@
 			
 		</div>
 		
+		<SCRIPT>
+			function button_click(){
+				if(document.getElementById("display").innerHTML == "0")
+					{document.getElementById("display").innerHTML = "";}
+					document.getElementById("display").innerHTML += (this.id).charAt(this.id.length-1);
+			}
+			function button_click_C(){
+				document.getElementById("display").innerHTML = "0";
+			}
 
+			function button_click_delete(){
+				if (document.getElementById("display").innerHTML.length == 1 || document.getElementById("display").innerHTML.charAt(0)=="-"){document.getElementById("display").innerHTML="0"}
+				else{document.getElementById("display").innerHTML=document.getElementById("display").innerHTML.substring(0,document.getElementById("display").innerHTML.length-1)}
+			}
+
+			function button_click_posneg(){
+				if (document.getElementById("display").innerHTML.charAt(0)=="-")
+					{document.getElementById("display").innerHTML=document.getElementById("display").innerHTML.substring(1)}
+				else
+					{document.getElementById("display").innerHTML= "-" + document.getElementById("display").innerHTML}
+			}
+
+
+				document.getElementById("display").innerHTML = "0";
+
+				document.getElementById("zero0").addEventListener("click", button_click, false);
+				document.getElementById("one1").addEventListener("click", button_click, false);
+				document.getElementById("two2").addEventListener("click", button_click, false);
+				document.getElementById("three3").addEventListener("click", button_click, false);
+				document.getElementById("four4").addEventListener("click", button_click, false);
+				document.getElementById("five5").addEventListener("click", button_click, false);
+				document.getElementById("six6").addEventListener("click", button_click, false);
+				document.getElementById("seven7").addEventListener("click", button_click, false);
+				document.getElementById("eight8").addEventListener("click", button_click, false);
+				document.getElementById("nine9").addEventListener("click", button_click, false);
+
+				document.getElementById("buttonC").addEventListener("click", button_click_C, false);
+
+				document.getElementById("delete").addEventListener("click", button_click_delete, false);
+
+				document.getElementById("plusMinus").addEventListener("click", button_click_posneg, false);
+
+
+
+		</SCRIPT>
 
 </body>
 </html>

@@ -1,11 +1,30 @@
 #playground1{
 	background:  lightgreen;
-	border:  0px;
-	margin:  0px;
+	border:  solid black 5px;
+	margin-left:  200px;
+	display: inline;
+	float:  left;
+	min-width:  200px;
+	max-height:  400px;
+	overflow:  auto;
 }
 
 #playground2{
 	background: lightblue;
-	border:  0px;
-	margin:  0px;
+	border:  solid black 5px;
+	margin-right:  200px;
+	display: inline;
+	float:  right;
+	min-width:  200px;
+	max-height:  400px;
+	overflow:  auto;
+	
+}
+
+body{
+	background-color:  black;
+}
+
+#main_header{
+	color:  white;
 }

@@ -1,7 +1,6 @@
 .container {
 /* 	background-color: lightgrey; */
-	width: 50%;
-	float: left;
+
 	margin-left: 100px;
 }
 
@@ -16,6 +15,8 @@
 	height: 100px;
 	background-color: #000000;
 	color: #FFFFFF;
+	text-align:  right;
+	overflow: auto;
 }
 
 
