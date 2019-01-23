@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intermediate Exercise 1 - Hotel</title>
+
+	<style type="text/css" src="css/Style01.css"></style>
+</head>
+<body>
+
+
+
+
+
+
+<script>
+
+	var nights2StayH = prompt("Please enter how many nights you would like to book at Hilton");
+	var nights2StayM = prompt("Please enter how many nights you would like to book at Mariott");
+	var nights2StayI = prompt("Please enter how many nights you would like to book at HolidayInnHotel");
+
+	function HotelConstructor(name, rooms, booked, wantedNights,colorHotel) {
+       this.name = name;
+       this.rooms = rooms;
+       this.booked = booked;
+       this.availNights = Math.floor(Math.random()*10)+1;
+       this.wantedNights = wantedNights;
+
+       
+      
+      	this.checkNights = function() {
+
+      		document.write("<div id=\""+ name +"\">");
+      		document.write("Hotel: " + name + "<br>");
+      		document.write("Available Nights: " + this.availNights + "<br>");
+      		document.write("Nights Requested: " + wantedNights + "<br>");
+      		document.getElementById(name).style.backgroundColor=colorHotel;
+      		 if (name == "Hilton") {
+      		 	document.getElementById(name).style.color="#FFFFFF";
+      		 }
+
+      		if(this.availNights<wantedNights){
+      			document.write("Sorry, no free room for " + wantedNights + " nights.<br>");
+      		}
+      		else {
+      			document.write("<button>I'll reserve</button>");
+      		}
+           document.write("</div>" + "<br>")
+       	};
+   	}
+
+
+	var hiltonHotel = new HotelConstructor('Hilton', '80', '42',nights2StayH,"#003580");
+    var mariottHotel = new HotelConstructor('Marriott', '78', '56',nights2StayM,"#FFFFFF");
+    var holidayInnHotel = new HotelConstructor('HolidayInn', '48', '32',nights2StayI,"#E9F0FA");
+
+   	hiltonHotel.checkNights();
+   	mariottHotel.checkNights();
+   	holidayInnHotel.checkNights();
+
+
+</script>	
+
+</body>
+</html>
