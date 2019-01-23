@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intermediate Exercise 1 - Hotel</title>
+
+	  <link rel="stylesheet" href="css/challange.css">
+</head>
+<body>
+	<header>
+			<p><h1 id="main_header">
+			</h1></p>
+
+	</header>
+
+
+	<main>
+		<div id="playground1">
+			<h1 id="player1id"></h1>
+		</div>
+		<button id="throw1" type="BUTTON">throw the dices</button>
+		<div id="thistory1"></div>
+
+		<div id="playground2">
+			<h1 id="player2id"></h1>
+		</div>
+		<button id="throw2" type="BUTTON">throw the dices</button>
+		<div id="thistory2"></div>
+	</main>
+
+
+
+
+
+
+<script>
+	
+
+	function getPlayers(){
+		var  player1 = prompt("Please enter your name Player1: ");
+		var  player2 = prompt("Please enter your name Player2: ");
+
+		document.getElementById("main_header").innerHTML = player1 + " VS " + player2;
+		document.getElementById("player1id").innerHTML = player1;
+		document.getElementById("player2id").innerHTML = player2;
+		return;
+	}
+
+
+
+	window.addEventListener("load", getPlayers, false);
+	document.getElementById("throw1").addEventListener("click", fthrow1, false);
+	document.getElementById("throw2").addEventListener("click", fthrow2, false);
+
+	var history1 = new Array;
+	var history2 = new Array;
+	var winner = new Array;
+
+
+	function fthrow1(){
+		history1.push([getrand(), getrand(), getrand()]);
+		document.getElementById("thistory1").innerHTML = gethistory1(history1);
+		document.getElementById("thistory2").innerHTML = gethistory2(history2);
+	}
+
+	function fthrow2(){
+		history2.push([getrand(), getrand(), getrand()]);
+		document.getElementById("thistory2").innerHTML = gethistory2(history2);
+		document.getElementById("thistory1").innerHTML = gethistory1(history1);
+	}
+
+	function getrand(){
+		return Math.floor(Math.random() * 6) + 1  ;
+	}
+
+	function gethistory1(myhistory){
+		var ret_val = "";
+		for(i=0; i < myhistory.length;i++){
+			ret_val += "Throw " + (i+1) + ": " + myhistory[i][0] + ", " + myhistory[i][1] + ", " + myhistory[i][2];
+			for(j=i;j < history2.length;j++){
+				if ((myhistory[i][0] + myhistory[i][1]+ myhistory[i][2]) < (history2[j][0] +history2[j][1] +history2[j][2])){
+					ret_val += 	" You lost! ";
+				}
+				else if ((myhistory[i][0] + myhistory[i][1]+ myhistory[i][2]) > (history2[j][0] +history2[j][1] +history2[j][2])){
+					ret_val += 	" You win! ";
+				} 
+				else {
+					ret_val += " Draw!";
+				}
+				break;
+			}
+			ret_val += "<br>";
+		}
+			
+		return ret_val;
+	}
+
+	function gethistory2(myhistory){
+		var ret_val = "";
+		for(i=0; i < myhistory.length;i++){
+			ret_val += "Throw " + (i+1) + ": " + myhistory[i][0] + ", " + myhistory[i][1] + ", " + myhistory[i][2];	
+			for(j=i;j < history1.length;j++){
+				if ((myhistory[i][0] + myhistory[i][1]+ myhistory[i][2]) < (history1[j][0] +history1[j][1] +history1[j][2])){
+					ret_val += 	" You lost! ";
+				}
+				else if ((myhistory[i][0] + myhistory[i][1]+ myhistory[i][2]) > (history1[j][0] +history1[j][1] +history1[j][2])){
+					ret_val += 	" You win! ";
+				} 
+				else {
+					ret_val += " Draw!";
+				}
+				break;
+			}
+			ret_val += "<br>";
+		}
+			
+		return ret_val;
+	}
+	
+
+
+</script>	
+
+</body>
+</html>
