@@ -6,15 +6,21 @@
 	<body>
 
 
-
 		<SCRIPT>
-			function get_birthYear(birthYear) {
-				var my_date = new Date();
-				var xyz = my_date.getFullYear() - birthYear;
-				document.write("Your age: " + xyz + " or " + (xyz-1));
+			function personal_information(myName, mySurname, myAge, myShort) {
+				var retString = "Hi I am " + myName + " " + mySurname + " I am " + myAge + " years old and I am a " + myShort + "<br>";
+				document.write("Name: " + myName + "<br>");
+				document.write("Surname: " + mySurname + "<br>");
+				document.write("Age: " + myAge + "<br>");
+				document.write("Short description: " + myShort + "<br>"+ "<br>");
+
+
+
+				return retString;
 			}
 
-			get_birthYear(1976);
+			document.write(personal_information("John", "Doe", 42, "future programmer") + "<br>");
+
 		</SCRIPT>
 	</body>
 </html>
