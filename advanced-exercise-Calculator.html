@@ -153,7 +153,7 @@
 
 			function button_click_dot(){
 				if (document.getElementById("display").innerHTML.indexOf(".")<0)
-					{document.getElementById("display").innerHTML+="."}
+					{document.getElementById("display").innerHTML+=".";}
 			}
 
 			function button_click_Plus(){
@@ -168,13 +168,13 @@
 			function button_click_Divide(){
 				document.getElementById("display").innerHTML+="/";
 			}
+			
 
 			function button_click_equal(){
-				document.getElementById("display").innerHTML = eval(document.getElementById("display").innerHTML);
+				try{document.getElementById("display").innerHTML = eval(document.getElementById("display").innerHTML);}
+				catch(err){alert('Your term causes an error! Learn math!')}
 			}
-
-
-
+			 
 
 
 
