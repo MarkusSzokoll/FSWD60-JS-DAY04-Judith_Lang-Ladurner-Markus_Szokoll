@@ -127,6 +127,8 @@
 			function button_click(){
 				if(document.getElementById("display").innerHTML == "0")
 					{document.getElementById("display").innerHTML = "";}
+				else if (document.getElementById("display").innerHTML == "-0")
+					{document.getElementById("display").innerHTML = "-";}
 					document.getElementById("display").innerHTML += (this.id).charAt(this.id.length-1);
 			}
 			function button_click_C(){
@@ -134,8 +136,12 @@
 			}
 
 			function button_click_delete(){
-				if (document.getElementById("display").innerHTML.length == 1 || document.getElementById("display").innerHTML.charAt(0)=="-"){document.getElementById("display").innerHTML="0"}
-				else{document.getElementById("display").innerHTML=document.getElementById("display").innerHTML.substring(0,document.getElementById("display").innerHTML.length-1)}
+				if (document.getElementById("display").innerHTML == "-0"){document.getElementById("display").innerHTML = "0";}
+				else{
+					if (document.getElementById("display").innerHTML.length == 1){document.getElementById("display").innerHTML="0"}
+					else{document.getElementById("display").innerHTML=document.getElementById("display").innerHTML.substring(0,document.getElementById("display").innerHTML.length-1)}
+					if (document.getElementById("display").innerHTML == "-"){document.getElementById("display").innerHTML = "-0"}
+				}
 			}
 
 			function button_click_posneg(){
@@ -144,6 +150,32 @@
 				else
 					{document.getElementById("display").innerHTML= "-" + document.getElementById("display").innerHTML}
 			}
+
+			function button_click_dot(){
+				if (document.getElementById("display").innerHTML.indexOf(".")<0)
+					{document.getElementById("display").innerHTML+="."}
+			}
+
+			function button_click_Plus(){
+				document.getElementById("display").innerHTML+="+";
+			}
+			function button_click_Minus(){
+				document.getElementById("display").innerHTML+="-";
+			}
+			function button_click_Times(){
+				document.getElementById("display").innerHTML+="*";
+			}
+			function button_click_Divide(){
+				document.getElementById("display").innerHTML+="/";
+			}
+
+			function button_click_equal(){
+				document.getElementById("display").innerHTML = eval(document.getElementById("display").innerHTML);
+			}
+
+
+
+
 
 
 				document.getElementById("display").innerHTML = "0";
@@ -165,7 +197,18 @@
 
 				document.getElementById("plusMinus").addEventListener("click", button_click_posneg, false);
 
+				document.getElementById("dot").addEventListener("click", button_click_dot, false);
 
+				document.getElementById("Plus").addEventListener("click", button_click_Plus, false);
+				document.getElementById("buttonMinus").addEventListener("click", button_click_Minus, false);
+				document.getElementById("buttonTimes").addEventListener("click", button_click_Times, false);
+				document.getElementById("buttonDivide").addEventListener("click", button_click_Divide, false);
+
+				document.getElementById("equal").addEventListener("click", button_click_equal, false);
+
+				
+				
+				
 
 		</SCRIPT>
 
