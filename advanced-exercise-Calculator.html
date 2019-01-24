@@ -137,12 +137,16 @@
 
 			function button_click_delete(){
 				if (document.getElementById("display").innerHTML == "-0"){document.getElementById("display").innerHTML = "0";}
+				else if (document.getElementById("display").innerHTML == "-("){document.getElementById("display").innerHTML = "-0";}
+				else if (document.getElementById("display").innerHTML == "("){document.getElementById("display").innerHTML = "0";}
 				else{
 					if (document.getElementById("display").innerHTML.length == 1){document.getElementById("display").innerHTML="0"}
 					else{document.getElementById("display").innerHTML=document.getElementById("display").innerHTML.substring(0,document.getElementById("display").innerHTML.length-1)}
 					if (document.getElementById("display").innerHTML == "-"){document.getElementById("display").innerHTML = "-0"}
 				}
 			}
+
+
 
 			function button_click_posneg(){
 				if (document.getElementById("display").innerHTML.charAt(0)=="-")
@@ -152,7 +156,7 @@
 			}
 
 			function button_click_dot(){
-				if (document.getElementById("display").innerHTML.indexOf(".")<0)
+				if (document.getElementById("display").innerHTML.charAt(document.getElementById("display").innerHTML.length-1)!=".")
 					{document.getElementById("display").innerHTML+=".";}
 			}
 
@@ -167,6 +171,21 @@
 			}
 			function button_click_Divide(){
 				document.getElementById("display").innerHTML+="/";
+			}
+			function button_click_openPar(){
+				if(document.getElementById("display").innerHTML=="0")
+					{document.getElementById("display").innerHTML="(";}
+				else if(document.getElementById("display").innerHTML=="-0"){
+					{document.getElementById("display").innerHTML="-(";}
+				}
+				else{
+					document.getElementById("display").innerHTML+="(";
+				}
+
+				
+			}
+			function button_click_closePar(){
+				document.getElementById("display").innerHTML+=")";
 			}
 			
 
@@ -203,6 +222,11 @@
 				document.getElementById("buttonMinus").addEventListener("click", button_click_Minus, false);
 				document.getElementById("buttonTimes").addEventListener("click", button_click_Times, false);
 				document.getElementById("buttonDivide").addEventListener("click", button_click_Divide, false);
+
+				document.getElementById("openPar").addEventListener("click", button_click_openPar, false);
+				document.getElementById("closePar").addEventListener("click", button_click_closePar, false);
+
+				
 
 				document.getElementById("equal").addEventListener("click", button_click_equal, false);
 
